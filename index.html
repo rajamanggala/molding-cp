@@ -59,8 +59,8 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1600&auto=format&fit=crop&q=60') center/cover no-repeat;
-      opacity: 0.18;
+      background: url('https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      opacity: 0.22;
     }
     .hero-grid-overlay {
       position: absolute;
@@ -305,6 +305,64 @@
     footer .brand-footer { font-family: 'Oswald', sans-serif; font-size: 1.6rem; color: #fff; letter-spacing: 2px; }
     footer .brand-footer span { color: var(--rust); }
     .footer-bottom { border-top: 1px solid #1e2d3d; margin-top: 2rem; padding-top: 1rem; font-size: .78rem; color: #556; }
+
+   .project-card{
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    }
+
+    .project-card img{
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        transition: transform .5s ease;
+        display: block;
+    }
+
+    .project-card:hover img{
+        transform: scale(1.08);
+    }
+
+    .project-overlay{
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(0,0,0,.85) 15%,
+            rgba(0,0,0,.35) 55%,
+            transparent 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        transition: all .3s ease;
+    }
+
+    .project-overlay h5{
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .project-overlay p{
+        color: #d6dbe2;
+        font-size: .92rem;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+
+    .project-overlay small{
+        color: #e74c3c;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    
   </style>
 </head>
 <body>
@@ -318,11 +376,11 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="01-home.html">HOME</a></li>
-        <li class="nav-item"><a class="nav-link" href="02-tentang.html">TENTANG KAMI</a></li>
-        <li class="nav-item"><a class="nav-link" href="03-artikel.html">ARTIKEL</a></li>
-        <li class="nav-item"><a class="nav-link" href="05-produk.html">PRODUK</a></li>
-        <li class="nav-item"><a class="nav-link" href="04-kontak.html">KONTAK</a></li>
+        <li class="nav-item"><a class="nav-link active" href="index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="tentang.html">TENTANG KAMI</a></li>
+        <li class="nav-item"><a class="nav-link" href="artikel.html">ARTIKEL</a></li>
+        <li class="nav-item"><a class="nav-link" href="produk.html">PRODUK</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">KONTAK</a></li>
       </ul>
     </div>
   </div>
@@ -334,8 +392,8 @@
   <div class="container hero-content">
     <div class="row align-items-center">
       <div class="col-lg-7">
-        <div class="hero-badge">PRECISION MOLDING SOLUTIONS</div>
-        <h1>Solusi <span class="accent">Cetak</span><br>Industri Presisi<br>Tinggi</h1>
+        <div class="hero-badge">PRECAST CONCRETE SOLUTIONS</div>
+        <h1>Solusi <span class="accent">Cetak Beton</span><br>Untuk Konstruksi<br>Modern</h1>
         <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kami hadir sebagai mitra terpercaya dalam industri molding dengan teknologi mutakhir dan tenaga ahli berpengalaman.</p>
         <div class="d-flex gap-3 mt-4 flex-wrap">
           <a href="05-produk.html" class="btn btn-hero-primary">LIHAT PRODUK</a>
@@ -369,47 +427,21 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
-        <div class="about-img-wrap pe-4">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop" alt="Pabrik Molding" style="box-shadow:0 16px 50px rgba(0,0,0,.15)"/>
-          <div class="about-img-badge">
-            <span class="big">25</span>
-            <span class="sm">TAHUN<br>KEUNGGULAN</span>
-          </div>
-        </div>
+        <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800"
+             class="img-fluid rounded shadow" alt="Pabrik Beton">
       </div>
-      <div class="col-lg-6 ps-lg-5 mt-5 mt-lg-0">
-        <div class="section-label">TENTANG PERUSAHAAN</div>
-        <h2 class="section-title">Pemimpin Industri<br>Molding Indonesia</h2>
+      <div class="col-lg-6">
+        <div class="section-label">TENTANG KAMI</div>
+        <h2 class="section-title">Spesialis Molding Beton & Precast</h2>
         <div class="divider-rust"></div>
-        <p class="text-muted mb-3" style="line-height:1.9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-        <p class="text-muted mb-4" style="line-height:1.9">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-        <div class="row g-3 mb-4">
-          <div class="col-6">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-check-circle-fill text-danger"></i>
-              <span style="font-size:.9rem">Teknologi Mutakhir</span>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-check-circle-fill text-danger"></i>
-              <span style="font-size:.9rem">Tim Ahli Berpengalaman</span>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-check-circle-fill text-danger"></i>
-              <span style="font-size:.9rem">Standar ISO 9001</span>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-check-circle-fill text-danger"></i>
-              <span style="font-size:.9rem">Pengiriman Tepat Waktu</span>
-            </div>
-          </div>
-        </div>
-        <a href="02-tentang.html" class="btn btn-hero-primary">SELENGKAPNYA</a>
+        <p>
+          Kami menyediakan solusi cetak beton presisi tinggi untuk kebutuhan
+          konstruksi bangunan, infrastruktur, dan proyek industrial.
+        </p>
+        <p>
+          Dengan pengalaman lebih dari 25 tahun, kami melayani proyek skala kecil
+          hingga besar di seluruh Indonesia.
+        </p>
       </div>
     </div>
   </div>
@@ -419,51 +451,35 @@
 <section>
   <div class="container">
     <div class="text-center mb-5">
-      <div class="section-label">LAYANAN KAMI</div>
-      <h2 class="section-title">Apa Yang Kami Tawarkan</h2>
-      <div class="divider-rust mx-auto"></div>
+      <div class="section-label">PRODUK KAMI</div>
+      <h2 class="section-title">Produk Precast Unggulan</h2>
     </div>
+
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-4">
         <div class="service-card">
-          <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
-          <h5>INJECTION MOLDING</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim.</p>
+          <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
+               class="img-fluid mb-3" alt="">
+          <h5>U DITCH</h5>
+          <p>Saluran beton pracetak untuk drainase dan irigasi.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
+
+      <div class="col-md-4">
         <div class="service-card">
-          <div class="service-icon"><i class="bi bi-wind"></i></div>
-          <h5>BLOW MOLDING</h5>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.</p>
+          <img src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=600"
+               class="img-fluid mb-3" alt="">
+          <h5>PAVING BLOCK</h5>
+          <p>Produk beton untuk area jalan, halaman, dan parkir.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
+
+      <div class="col-md-4">
         <div class="service-card">
-          <div class="service-icon"><i class="bi bi-layers"></i></div>
-          <h5>COMPRESSION MOLDING</h5>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="service-card">
-          <div class="service-icon"><i class="bi bi-tools"></i></div>
-          <h5>TOOLING & DIE MAKING</h5>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="service-card">
-          <div class="service-icon"><i class="bi bi-search"></i></div>
-          <h5>QUALITY CONTROL</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="service-card">
-          <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
-          <h5>OEM MANUFACTURING</h5>
-          <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit sed quia non numquam.</p>
+          <img src="https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=600"
+               class="img-fluid mb-3" alt="">
+          <h5>KANSTIN</h5>
+          <p>Pembatas jalan dan trotoar dengan kualitas tinggi.</p>
         </div>
       </div>
     </div>
@@ -471,45 +487,53 @@
 </section>
 
 <!-- PRODUCTS HIGHLIGHT -->
-<section class="products-highlight">
+<section class="products-highlight py-5">
   <div class="container">
-    <div class="row align-items-center mb-4">
-      <div class="col">
-        <div class="section-label" style="color:var(--rust)">PRODUK UNGGULAN</div>
-        <h2 class="section-title">Koleksi Produk Kami</h2>
-      </div>
-      <div class="col-auto">
-        <a href="05-produk.html" class="btn btn-hero-outline" style="color:#fff;border-color:rgba(255,255,255,.3)">SEMUA PRODUK</a>
-      </div>
+    <div class="text-center mb-5">
+      <div class="section-label">GALERI PROYEK</div>
+      <h2 class="section-title text-white">Hasil Pekerjaan Kami</h2>
+      <div class="divider-rust mx-auto"></div>
+      <p style="color:#bdc3c7; max-width:700px; margin:auto;">
+        Beberapa proyek molding beton dan konstruksi precast
+        yang telah kami kerjakan.
+      </p>
     </div>
-    <div class="row g-3">
-      <div class="col-md-6 col-lg-4">
-        <div class="prod-card">
-          <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&auto=format&fit=crop" alt="Komponen Plastik"/>
-          <div class="prod-card-overlay">
-            <h5>KOMPONEN PLASTIK OTOMOTIF</h5>
-            <p>Lorem ipsum dolor sit amet consectetur</p>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="project-card">
+          <img src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+          <div class="project-overlay">
+            <h5>Drainase Jalan Raya</h5>
+            <p>Pemasangan U-Ditch dan Box Culvert untuk kawasan industri.</p>
+            <small>Jakarta • Infrastruktur</small>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="prod-card">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop" alt="Elektronik"/>
-          <div class="prod-card-overlay">
-            <h5>CASING ELEKTRONIK</h5>
-            <p>Sed do eiusmod tempor incididunt labore</p>
+
+      <div class="col-md-4">
+        <div class="project-card">
+          <img src="https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+          <div class="project-overlay">
+            <h5>Paving Area Komersial</h5>
+            <p>Pemasangan paving block area parkir dan pedestrian mall.</p>
+            <small>Bandung • Commercial</small>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="prod-card">
-          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop" alt="Kemasan"/>
-          <div class="prod-card-overlay">
-            <h5>KEMASAN INDUSTRI</h5>
-            <p>Ut enim ad minim veniam quis nostrud</p>
+
+      <div class="col-md-4">
+        <div class="project-card">
+          <img src="https://images.pexels.com/photos/534220/pexels-photo-534220.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+          <div class="project-overlay">
+            <h5>Panel Beton Gedung</h5>
+            <p>Panel dinding beton pracetak untuk bangunan bertingkat.</p>
+            <small>Surabaya • Building</small>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -567,12 +591,22 @@
 </div>
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="row g-4">
+
+      <!-- COMPANY -->
       <div class="col-lg-4">
-        <div class="brand-footer mb-3">PT. MITRA <span>MOLDING</span></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kami adalah perusahaan molding terpercaya di Indonesia dengan standar kualitas internasional.</p>
+        <div class="brand-footer mb-3">
+          PT. MITRA <span>BETON</span>
+        </div>
+        <p>
+          Perusahaan terpercaya di bidang molding beton dan precast concrete
+          untuk kebutuhan infrastruktur, drainase, paving, panel dinding,
+          serta konstruksi bangunan modern.
+        </p>
+
         <div class="d-flex gap-3 mt-3">
           <a href="#"><i class="bi bi-facebook fs-5"></i></a>
           <a href="#"><i class="bi bi-instagram fs-5"></i></a>
@@ -580,32 +614,54 @@
           <a href="#"><i class="bi bi-youtube fs-5"></i></a>
         </div>
       </div>
+
+      <!-- NAVIGATION -->
       <div class="col-lg-2 col-6">
         <h6>NAVIGASI</h6>
         <div><a href="01-home.html">Home</a></div>
         <div><a href="02-tentang.html">Tentang Kami</a></div>
-        <div><a href="03-artikel.html">Artikel</a></div>
-        <div><a href="05-produk.html">Produk</a></div>
+        <div><a href="03-artikel.html">Proyek</a></div>
+        <div><a href="05-produk.html">Produk Beton</a></div>
         <div><a href="04-kontak.html">Kontak</a></div>
       </div>
+
+      <!-- PRODUCTS -->
       <div class="col-lg-3 col-6">
-        <h6>LAYANAN</h6>
-        <div><a href="#">Injection Molding</a></div>
-        <div><a href="#">Blow Molding</a></div>
-        <div><a href="#">Compression Molding</a></div>
-        <div><a href="#">Tooling & Die</a></div>
-        <div><a href="#">OEM Manufacturing</a></div>
+        <h6>PRODUK BETON</h6>
+        <div><a href="#">U-Ditch</a></div>
+        <div><a href="#">Box Culvert</a></div>
+        <div><a href="#">Paving Block</a></div>
+        <div><a href="#">Panel Beton Pracetak</a></div>
+        <div><a href="#">Kanstin & Road Barrier</a></div>
       </div>
+
+      <!-- CONTACT -->
       <div class="col-lg-3">
         <h6>KONTAK</h6>
-        <p><i class="bi bi-geo-alt me-2"></i>Jl. Industri Raya No. 88, Kawasan Industri, Jakarta 14450</p>
-        <p><i class="bi bi-telephone me-2"></i>+62 21 5555 7890</p>
-        <p><i class="bi bi-envelope me-2"></i>info@mitramolding.co.id</p>
-        <p><i class="bi bi-clock me-2"></i>Senin–Jumat, 08.00–17.00</p>
+        <p>
+          <i class="bi bi-geo-alt me-2"></i>
+          Jl. Raya Industri Beton No. 88, Jakarta
+        </p>
+        <p>
+          <i class="bi bi-telephone me-2"></i>
+          +62 21 5555 7890
+        </p>
+        <p>
+          <i class="bi bi-envelope me-2"></i>
+          info@mitrabeton.co.id
+        </p>
+        <p>
+          <i class="bi bi-clock me-2"></i>
+          Senin–Sabtu, 08.00–17.00
+        </p>
       </div>
+
     </div>
+
     <div class="footer-bottom text-center">
-      <p>© 2025 PT. Mitra Molding Industri. Seluruh hak cipta dilindungi.</p>
+      <p>
+        © 2025 PT. Mitra Beton. Spesialis Molding Beton & Precast Concrete.
+      </p>
     </div>
   </div>
 </footer>

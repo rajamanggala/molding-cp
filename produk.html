@@ -130,11 +130,11 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="01-home.html">HOME</a></li>
-        <li class="nav-item"><a class="nav-link" href="02-tentang.html">TENTANG KAMI</a></li>
-        <li class="nav-item"><a class="nav-link" href="03-artikel.html">ARTIKEL</a></li>
-        <li class="nav-item"><a class="nav-link active" href="05-produk.html">PRODUK</a></li>
-        <li class="nav-item"><a class="nav-link" href="04-kontak.html">KONTAK</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="tentang.html">TENTANG KAMI</a></li>
+        <li class="nav-item"><a class="nav-link" href="artikel.html">ARTIKEL</a></li>
+        <li class="nav-item"><a class="nav-link active" href="produk.html">PRODUK</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">KONTAK</a></li>
       </ul>
     </div>
   </div>
@@ -155,13 +155,13 @@
     <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
       <div class="d-flex gap-2 flex-wrap">
         <button class="filter-btn active" onclick="filterProd(this,'semua')">SEMUA</button>
-        <button class="filter-btn" onclick="filterProd(this,'otomotif')">OTOMOTIF</button>
-        <button class="filter-btn" onclick="filterProd(this,'elektronik')">ELEKTRONIK</button>
-        <button class="filter-btn" onclick="filterProd(this,'kemasan')">KEMASAN</button>
-        <button class="filter-btn" onclick="filterProd(this,'medis')">MEDIS</button>
-        <button class="filter-btn" onclick="filterProd(this,'industri')">INDUSTRI</button>
+        <button class="filter-btn" onclick="filterProd(this,'uditch')">U-DITCH</button>
+        <button class="filter-btn" onclick="filterProd(this,'boxculvert')">BOX CULVERT</button>
+        <button class="filter-btn" onclick="filterProd(this,'paving')">PAVING BLOCK</button>
+        <button class="filter-btn" onclick="filterProd(this,'panel')">PANEL BETON</button>
+        <button class="filter-btn" onclick="filterProd(this,'kanstin')">KANSTIN</button>
       </div>
-      <input type="text" class="search-prod" placeholder="🔍  Cari produk..."/>
+      <input type="text" class="search-prod" placeholder="🔍 Cari produk beton..." />
     </div>
   </div>
 </div>
@@ -170,26 +170,50 @@
 <div class="featured-prod">
   <div class="container">
     <div class="row g-0 align-items-stretch">
+      
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&auto=format&fit=crop" alt="Featured" class="feat-prod-img" style="height:100%;object-fit:cover"/>
+        <img 
+          src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+          alt="Produk Beton Unggulan" 
+          class="feat-prod-img" 
+          style="height:100%;object-fit:cover"
+        />
       </div>
+
       <div class="col-lg-6">
         <div class="feat-prod-content h-100 d-flex flex-column justify-content-center">
-          <div class="section-label" style="color:var(--rust)">PRODUK UNGGULAN</div>
-          <h3>Komponen Plastik Presisi Tinggi untuk Industri Otomotif</h3>
-          <div style="width:40px;height:3px;background:var(--rust);margin:.8rem 0 1rem"></div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Produk ini dirancang khusus untuk memenuhi standar otomotif internasional.</p>
-          <ul class="feat-spec-list ps-0 mt-2">
-            <li>Material: PP, ABS, PA6, PA66</li>
-            <li>Toleransi: ±0.05 mm</li>
-            <li>Finishing: Painting, Chrome, Texture</li>
-            <li>Sertifikasi: IATF 16949</li>
-          </ul>
-          <div class="mt-3">
-            <a href="#" class="btn btn-feat" data-bs-toggle="modal" data-bs-target="#quoteModal">REQUEST PENAWARAN</a>
+          
+          <div class="section-label" style="color:var(--rust)">
+            PRODUK UNGGULAN
           </div>
+
+          <h3>U-Ditch Beton Pracetak untuk Sistem Drainase Modern</h3>
+
+          <div style="width:40px;height:3px;background:var(--rust);margin:.8rem 0 1rem"></div>
+
+          <p>
+            U-Ditch beton pracetak kami dirancang untuk kebutuhan drainase
+            jalan raya, kawasan industri, perumahan, dan proyek infrastruktur.
+            Diproduksi dengan mutu beton tinggi untuk memastikan kekuatan,
+            ketahanan, dan umur pakai jangka panjang.
+          </p>
+
+          <ul class="feat-spec-list ps-0 mt-2">
+            <li>Mutu Beton: K-350 / K-400</li>
+            <li>Ukuran: 300 mm – 1200 mm</li>
+            <li>Tahan Beban Berat & Cuaca Ekstrem</li>
+            <li>Sertifikasi Quality Control Produksi</li>
+          </ul>
+
+          <div class="mt-3">
+            <a href="#" class="btn btn-feat" data-bs-toggle="modal" data-bs-target="#quoteModal">
+              REQUEST PENAWARAN
+            </a>
+          </div>
+
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -198,274 +222,177 @@
 <section style="padding:60px 0">
   <div class="container">
     <div class="row g-4">
+
       <!-- MAIN GRID -->
       <div class="col-lg-9">
         <div class="row g-4" id="productGrid">
 
           <!-- Product 1 -->
-          <div class="col-md-4 prod-item otomotif">
+          <div class="col-md-4 prod-item drainase">
             <div class="prod-card-main">
               <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&auto=format&fit=crop" alt=""/>
+                <img src="https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=800" alt="U-Ditch"/>
                 <span class="prod-badge">BEST SELLER</span>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal" title="Request Quote"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn" title="Lihat Detail"><i class="bi bi-eye"></i></a>
-                </div>
               </div>
               <div class="prod-body">
-                <div class="prod-cat">OTOMOTIF</div>
-                <h5>Bumper Inner Bracket Assembly</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                <div class="prod-cat">DRAINASE</div>
+                <h5>U-Ditch Precast Concrete</h5>
+                <p>Saluran beton pracetak berkualitas tinggi untuk sistem drainase jalan, kawasan industri, dan perumahan.</p>
                 <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>PP + GF30</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>±0.05mm</span>
+                  <span class="spec-item"><i class="bi bi-box"></i>K-350</span>
+                  <span class="spec-item"><i class="bi bi-rulers"></i>300–1200 mm</span>
                 </div>
               </div>
               <div class="prod-footer">
                 <a href="#" class="btn-detail">DETAIL →</a>
-                <button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button>
+                <button class="btn-quote">QUOTE</button>
               </div>
             </div>
           </div>
 
           <!-- Product 2 -->
-          <div class="col-md-4 prod-item elektronik">
+          <div class="col-md-4 prod-item struktur">
             <div class="prod-card-main">
               <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&auto=format&fit=crop" alt=""/>
+                <img src="https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Box Culvert"/>
                 <span class="prod-badge prod-badge-new">NEW</span>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn"><i class="bi bi-eye"></i></a>
-                </div>
               </div>
               <div class="prod-body">
-                <div class="prod-cat">ELEKTRONIK</div>
-                <h5>Housing Elektronik ABS Grade</h5>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                <div class="prod-cat">STRUKTUR</div>
+                <h5>Box Culvert Beton</h5>
+                <p>Produk beton pracetak untuk saluran tertutup, gorong-gorong, dan kebutuhan struktur bawah tanah.</p>
                 <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>ABS UL94-V0</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>±0.03mm</span>
+                  <span class="spec-item"><i class="bi bi-box"></i>K-400</span>
+                  <span class="spec-item"><i class="bi bi-rulers"></i>Custom Size</span>
                 </div>
               </div>
-              <div class="prod-footer"><a href="#" class="btn-detail">DETAIL →</a><button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button></div>
+              <div class="prod-footer">
+                <a href="#" class="btn-detail">DETAIL →</a>
+                <button class="btn-quote">QUOTE</button>
+              </div>
             </div>
           </div>
 
           <!-- Product 3 -->
-          <div class="col-md-4 prod-item kemasan">
+          <div class="col-md-4 prod-item paving">
             <div class="prod-card-main">
               <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&auto=format&fit=crop" alt=""/>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn"><i class="bi bi-eye"></i></a>
-                </div>
+                <img src="https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Paving Block"/>
               </div>
               <div class="prod-body">
-                <div class="prod-cat">KEMASAN</div>
-                <h5>Container Industri HDPE Food Grade</h5>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                <div class="prod-cat">PAVING</div>
+                <h5>Paving Block Beton</h5>
+                <p>Paving block untuk area parkir, pedestrian, halaman, dan akses jalan lingkungan.</p>
                 <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>HDPE FDA</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>Var. Size</span>
+                  <span class="spec-item"><i class="bi bi-box"></i>K-300</span>
+                  <span class="spec-item"><i class="bi bi-rulers"></i>6–10 cm</span>
                 </div>
               </div>
-              <div class="prod-footer"><a href="#" class="btn-detail">DETAIL →</a><button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button></div>
+              <div class="prod-footer">
+                <a href="#" class="btn-detail">DETAIL →</a>
+                <button class="btn-quote">QUOTE</button>
+              </div>
             </div>
           </div>
 
           <!-- Product 4 -->
-          <div class="col-md-4 prod-item medis">
+          <div class="col-md-4 prod-item panel">
             <div class="prod-card-main">
               <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&auto=format&fit=crop" alt=""/>
-                <span class="prod-badge" style="background:#3498db">MEDIS</span>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn"><i class="bi bi-eye"></i></a>
-                </div>
+                <img src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Panel Beton"/>
               </div>
               <div class="prod-body">
-                <div class="prod-cat">MEDIS</div>
-                <h5>Komponen Peralatan Medis Steril</h5>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                <div class="prod-cat">PANEL</div>
+                <h5>Panel Dinding Beton</h5>
+                <p>Panel beton pracetak modern untuk pagar, dinding pembatas, dan bangunan industrial.</p>
                 <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>PC Medical</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>±0.02mm</span>
+                  <span class="spec-item"><i class="bi bi-box"></i>K-350</span>
+                  <span class="spec-item"><i class="bi bi-rulers"></i>240 x 60 cm</span>
                 </div>
               </div>
-              <div class="prod-footer"><a href="#" class="btn-detail">DETAIL →</a><button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button></div>
+              <div class="prod-footer">
+                <a href="#" class="btn-detail">DETAIL →</a>
+                <button class="btn-quote">QUOTE</button>
+              </div>
             </div>
           </div>
 
           <!-- Product 5 -->
-          <div class="col-md-4 prod-item industri">
+          <div class="col-md-4 prod-item jalan">
             <div class="prod-card-main">
               <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&auto=format&fit=crop&crop=right" alt=""/>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn"><i class="bi bi-eye"></i></a>
-                </div>
+                <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Road Barrier"/>
               </div>
               <div class="prod-body">
-                <div class="prod-cat">INDUSTRI</div>
-                <h5>Gear & Mekanis Nylon PA6</h5>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+                <div class="prod-cat">JALAN</div>
+                <h5>Road Barrier Beton</h5>
+                <p>Barrier beton untuk pengaman jalan, proyek konstruksi, dan area lalu lintas berat.</p>
                 <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>PA6 + MoS2</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>±0.08mm</span>
+                  <span class="spec-item"><i class="bi bi-box"></i>K-400</span>
+                  <span class="spec-item"><i class="bi bi-rulers"></i>Custom</span>
                 </div>
               </div>
-              <div class="prod-footer"><a href="#" class="btn-detail">DETAIL →</a><button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button></div>
+              <div class="prod-footer">
+                <a href="#" class="btn-detail">DETAIL →</a>
+                <button class="btn-quote">QUOTE</button>
+              </div>
             </div>
           </div>
 
           <!-- Product 6 -->
-          <div class="col-md-4 prod-item otomotif">
+          <div class="col-md-4 prod-item custom">
             <div class="prod-card-main">
               <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&auto=format&fit=crop&crop=center" alt=""/>
-                <span class="prod-badge prod-badge-new">BARU</span>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn"><i class="bi bi-eye"></i></a>
-                </div>
+                <img src="https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Custom Beton"/>
+                <span class="prod-badge prod-badge-new">CUSTOM</span>
               </div>
               <div class="prod-body">
-                <div class="prod-cat">OTOMOTIF</div>
-                <h5>Cluster Instrument Panel Cover</h5>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus blanditiis praesentium.</p>
+                <div class="prod-cat">CUSTOM</div>
+                <h5>Custom Precast Concrete</h5>
+                <p>Kami menerima produk beton custom sesuai gambar teknik dan spesifikasi proyek Anda.</p>
                 <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>ABS+PC</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>±0.05mm</span>
+                  <span class="spec-item"><i class="bi bi-box"></i>By Request</span>
+                  <span class="spec-item"><i class="bi bi-rulers"></i>Custom</span>
                 </div>
               </div>
-              <div class="prod-footer"><a href="#" class="btn-detail">DETAIL →</a><button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button></div>
-            </div>
-          </div>
-
-          <!-- Product 7 -->
-          <div class="col-md-4 prod-item kemasan">
-            <div class="prod-card-main">
-              <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&auto=format&fit=crop&crop=right" alt=""/>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn"><i class="bi bi-eye"></i></a>
-                </div>
+              <div class="prod-footer">
+                <a href="#" class="btn-detail">DETAIL →</a>
+                <button class="btn-quote">QUOTE</button>
               </div>
-              <div class="prod-body">
-                <div class="prod-cat">KEMASAN</div>
-                <h5>Botol PET Blow Molding Custom</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing. Duis aute irure dolor reprehenderit.</p>
-                <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>PET Clear</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>100–2000ml</span>
-                </div>
-              </div>
-              <div class="prod-footer"><a href="#" class="btn-detail">DETAIL →</a><button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button></div>
-            </div>
-          </div>
-
-          <!-- Product 8 -->
-          <div class="col-md-4 prod-item elektronik">
-            <div class="prod-card-main">
-              <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&auto=format&fit=crop&crop=top" alt=""/>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn"><i class="bi bi-eye"></i></a>
-                </div>
-              </div>
-              <div class="prod-body">
-                <div class="prod-cat">ELEKTRONIK</div>
-                <h5>Connector & Terminal Box PP</h5>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip.</p>
-                <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>PP Flame Ret.</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>±0.04mm</span>
-                </div>
-              </div>
-              <div class="prod-footer"><a href="#" class="btn-detail">DETAIL →</a><button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button></div>
-            </div>
-          </div>
-
-          <!-- Product 9 -->
-          <div class="col-md-4 prod-item industri">
-            <div class="prod-card-main">
-              <div class="prod-img-wrap">
-                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&auto=format&fit=crop&crop=left" alt=""/>
-                <div class="prod-overlay">
-                  <a href="#" class="overlay-btn" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="bi bi-file-earmark-text"></i></a>
-                  <a href="#" class="overlay-btn"><i class="bi bi-eye"></i></a>
-                </div>
-              </div>
-              <div class="prod-body">
-                <div class="prod-cat">INDUSTRI</div>
-                <h5>Pulley & Impeller Polypropylene</h5>
-                <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <div class="prod-specs">
-                  <span class="spec-item"><i class="bi bi-layers"></i>PP Copolymer</span>
-                  <span class="spec-item"><i class="bi bi-rulers"></i>±0.1mm</span>
-                </div>
-              </div>
-              <div class="prod-footer"><a href="#" class="btn-detail">DETAIL →</a><button class="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">QUOTE</button></div>
             </div>
           </div>
 
         </div>
-        <!-- Pagination -->
-        <nav class="mt-4">
-          <ul class="pagination justify-content-center">
-            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">»</a></li>
-          </ul>
-        </nav>
       </div>
 
       <!-- SIDEBAR -->
       <div class="col-lg-3 sidebar-prod">
         <div class="widget">
           <h6>KATEGORI PRODUK</h6>
-          <div class="cat-item" onclick="filterProd(null,'semua')"><span>Semua Produk</span><span class="badge">9</span></div>
-          <div class="cat-item" onclick="filterProd(null,'otomotif')"><span>Otomotif</span><span class="badge">3</span></div>
-          <div class="cat-item" onclick="filterProd(null,'elektronik')"><span>Elektronik</span><span class="badge">2</span></div>
-          <div class="cat-item" onclick="filterProd(null,'kemasan')"><span>Kemasan</span><span class="badge">2</span></div>
-          <div class="cat-item" onclick="filterProd(null,'medis')"><span>Medis</span><span class="badge">1</span></div>
-          <div class="cat-item" onclick="filterProd(null,'industri')"><span>Industri</span><span class="badge">2</span></div>
+          <div class="cat-item"><span>Drainase</span><span class="badge">1</span></div>
+          <div class="cat-item"><span>Struktur</span><span class="badge">1</span></div>
+          <div class="cat-item"><span>Paving</span><span class="badge">1</span></div>
+          <div class="cat-item"><span>Panel Beton</span><span class="badge">1</span></div>
+          <div class="cat-item"><span>Road Barrier</span><span class="badge">1</span></div>
+          <div class="cat-item"><span>Custom</span><span class="badge">1</span></div>
         </div>
 
         <div class="widget">
-          <h6>MATERIAL</h6>
-          <div class="range-item"><input type="checkbox" checked/> PP (Polypropylene)</div>
-          <div class="range-item"><input type="checkbox" checked/> ABS</div>
-          <div class="range-item"><input type="checkbox"/> PC (Polycarbonate)</div>
-          <div class="range-item"><input type="checkbox"/> PA6 / PA66 (Nylon)</div>
-          <div class="range-item"><input type="checkbox"/> HDPE / LDPE</div>
-          <div class="range-item"><input type="checkbox"/> PET</div>
-          <div class="range-item"><input type="checkbox"/> POM (Delrin)</div>
+          <h6>MUTU BETON</h6>
+          <div class="range-item"><input type="checkbox" checked/> K-300</div>
+          <div class="range-item"><input type="checkbox" checked/> K-350</div>
+          <div class="range-item"><input type="checkbox"/> K-400</div>
+          <div class="range-item"><input type="checkbox"/> K-500</div>
         </div>
 
         <div class="widget">
-          <h6>PROSES</h6>
-          <div class="range-item"><input type="checkbox" checked/> Injection Molding</div>
-          <div class="range-item"><input type="checkbox"/> Blow Molding</div>
-          <div class="range-item"><input type="checkbox"/> Compression Molding</div>
-          <div class="range-item"><input type="checkbox"/> Extrusion</div>
-        </div>
-
-        <div class="widget" style="background:var(--steel)">
-          <h6 style="color:#fff;border-color:var(--rust)">BUTUH PRODUK CUSTOM?</h6>
-          <p style="color:var(--silver);font-size:.83rem;line-height:1.7">Lorem ipsum dolor sit amet consectetur. Konsultasikan kebutuhan Anda dengan tim teknis kami.</p>
-          <a href="04-kontak.html" class="btn btn-feat w-100 mt-2 text-center" style="display:block">KONSULTASI GRATIS</a>
+          <h6>LAYANAN</h6>
+          <div class="range-item"><input type="checkbox" checked/> Produksi Massal</div>
+          <div class="range-item"><input type="checkbox"/> Custom Mold</div>
+          <div class="range-item"><input type="checkbox"/> Pengiriman Proyek</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -514,15 +441,78 @@
 </div>
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="row g-4">
-      <div class="col-lg-4"><div class="brand-footer mb-3">PT. MITRA <span>MOLDING</span></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kami adalah perusahaan molding terpercaya di Indonesia.</p><div class="d-flex gap-3 mt-3"><a href="#"><i class="bi bi-facebook fs-5"></i></a><a href="#"><i class="bi bi-instagram fs-5"></i></a><a href="#"><i class="bi bi-linkedin fs-5"></i></a></div></div>
-      <div class="col-lg-2 col-6"><h6>NAVIGASI</h6><div><a href="01-home.html">Home</a></div><div><a href="02-tentang.html">Tentang Kami</a></div><div><a href="03-artikel.html">Artikel</a></div><div><a href="05-produk.html">Produk</a></div><div><a href="04-kontak.html">Kontak</a></div></div>
-      <div class="col-lg-3 col-6"><h6>LAYANAN</h6><div><a href="#">Injection Molding</a></div><div><a href="#">Blow Molding</a></div><div><a href="#">Compression Molding</a></div><div><a href="#">Tooling & Die</a></div></div>
-      <div class="col-lg-3"><h6>KONTAK</h6><p><i class="bi bi-geo-alt me-2"></i>Jl. Industri Raya No. 88, Jakarta</p><p><i class="bi bi-telephone me-2"></i>+62 21 5555 7890</p><p><i class="bi bi-envelope me-2"></i>info@mitramolding.co.id</p></div>
+
+      <!-- COMPANY -->
+      <div class="col-lg-4">
+        <div class="brand-footer mb-3">
+          PT. MITRA <span>BETON</span>
+        </div>
+        <p>
+          Perusahaan terpercaya di bidang molding beton dan precast concrete
+          untuk kebutuhan infrastruktur, drainase, paving, panel dinding,
+          serta konstruksi bangunan modern.
+        </p>
+
+        <div class="d-flex gap-3 mt-3">
+          <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#"><i class="bi bi-linkedin fs-5"></i></a>
+          <a href="#"><i class="bi bi-youtube fs-5"></i></a>
+        </div>
+      </div>
+
+      <!-- NAVIGATION -->
+      <div class="col-lg-2 col-6">
+        <h6>NAVIGASI</h6>
+        <div><a href="01-home.html">Home</a></div>
+        <div><a href="02-tentang.html">Tentang Kami</a></div>
+        <div><a href="03-artikel.html">Proyek</a></div>
+        <div><a href="05-produk.html">Produk Beton</a></div>
+        <div><a href="04-kontak.html">Kontak</a></div>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="col-lg-3 col-6">
+        <h6>PRODUK BETON</h6>
+        <div><a href="#">U-Ditch</a></div>
+        <div><a href="#">Box Culvert</a></div>
+        <div><a href="#">Paving Block</a></div>
+        <div><a href="#">Panel Beton Pracetak</a></div>
+        <div><a href="#">Kanstin & Road Barrier</a></div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="col-lg-3">
+        <h6>KONTAK</h6>
+        <p>
+          <i class="bi bi-geo-alt me-2"></i>
+          Jl. Raya Industri Beton No. 88, Jakarta
+        </p>
+        <p>
+          <i class="bi bi-telephone me-2"></i>
+          +62 21 5555 7890
+        </p>
+        <p>
+          <i class="bi bi-envelope me-2"></i>
+          info@mitrabeton.co.id
+        </p>
+        <p>
+          <i class="bi bi-clock me-2"></i>
+          Senin–Sabtu, 08.00–17.00
+        </p>
+      </div>
+
     </div>
-    <div class="footer-bottom"><p>© 2025 PT. Mitra Molding Industri. Seluruh hak cipta dilindungi.</p></div>
+
+    <div class="footer-bottom text-center">
+      <p>
+        © 2025 PT. Mitra Beton. Spesialis Molding Beton & Precast Concrete.
+      </p>
+    </div>
   </div>
 </footer>
 
