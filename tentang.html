@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tentang Kami – PT. Mitra Molding Industri</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --steel:#1a2332; --iron:#2d3f55; --rust:#c0392b; --rust-light:#e74c3c; --silver:#bdc3c7; --light-bg:#f4f6f8; }
+    body { font-family:'Source Serif 4',serif; color:#222; }
+    h1,h2,h3,h4,h5,h6 { font-family:'Oswald',sans-serif; }
+
+    .navbar-custom { background:var(--steel); border-bottom:3px solid var(--rust); padding:0 2rem; }
+    .navbar-custom .navbar-brand { font-family:'Oswald',sans-serif; font-size:1.5rem; color:#fff !important; letter-spacing:2px; }
+    .navbar-custom .navbar-brand span { color:var(--rust); }
+    .navbar-custom .nav-link { color:var(--silver) !important; font-family:'Oswald',sans-serif; letter-spacing:1px; font-size:.9rem; padding:1.2rem 1rem !important; transition:color .2s; }
+    .navbar-custom .nav-link:hover,.navbar-custom .nav-link.active { color:var(--rust) !important; }
+    .navbar-toggler { border-color:var(--silver); }
+    .navbar-toggler-icon { filter:invert(1); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--steel), #0d1821);
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content:'';
+      position:absolute; inset:0;
+      background:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=40') center/cover;
+      opacity:.1;
+    }
+    .page-hero-content { position:relative; z-index:2; }
+    .breadcrumb-item a { color:var(--silver); text-decoration:none; }
+    .breadcrumb-item.active { color:var(--rust); }
+    .breadcrumb-divider { color:var(--silver); }
+    .page-hero h1 { font-size:clamp(2rem,5vw,3.5rem); color:#fff; font-weight:700; }
+    .page-hero p { color:var(--silver); font-style:italic; max-width:600px; line-height:1.8; }
+
+    section { padding:70px 0; }
+    .section-label { font-family:'Oswald',sans-serif; font-size:.75rem; letter-spacing:4px; color:var(--rust); text-transform:uppercase; margin-bottom:.5rem; }
+    .section-title { font-family:'Oswald',sans-serif; font-size:clamp(1.8rem,3vw,2.6rem); color:var(--steel); line-height:1.15; }
+    .divider-rust { width:50px; height:4px; background:var(--rust); margin:1rem 0 1.5rem; }
+
+    /* PROFILE */
+    .profile-img { width:100%; aspect-ratio:4/3; object-fit:cover; box-shadow:0 16px 50px rgba(0,0,0,.15); }
+    .year-tag {
+      display:inline-block; background:var(--rust); color:#fff;
+      font-family:'Oswald',sans-serif; padding:.5rem 1.2rem;
+      font-size:1.8rem; font-weight:700; margin-bottom:1.5rem;
+    }
+
+    /* VISI MISI */
+    .visi-misi { background:var(--steel); }
+    .vm-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); padding:2.5rem; height:100%; position:relative; }
+    .vm-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--rust); }
+    .vm-card h4 { font-family:'Oswald',sans-serif; color:#fff; font-size:1.4rem; letter-spacing:2px; margin-bottom:1rem; }
+    .vm-card p { color:var(--silver); line-height:1.9; font-size:.93rem; }
+    .vm-card ul { color:var(--silver); line-height:2; padding-left:1.2rem; font-size:.93rem; }
+    .vm-icon { font-size:2.5rem; color:var(--rust); margin-bottom:1rem; }
+
+    /* NILAI */
+    .nilai-card {
+      text-align:center; padding:2rem 1.5rem;
+      border:1px solid #e0e6ed;
+      transition:all .25s;
+    }
+    .nilai-card:hover { border-color:var(--rust); box-shadow:0 8px 30px rgba(0,0,0,.08); transform:translateY(-4px); }
+    .nilai-icon { width:70px; height:70px; background:var(--light-bg); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; font-size:1.8rem; color:var(--rust); transition:.25s; }
+    .nilai-card:hover .nilai-icon { background:var(--rust); color:#fff; }
+    .nilai-card h5 { font-family:'Oswald',sans-serif; color:var(--steel); font-size:1rem; letter-spacing:1px; }
+    .nilai-card p { font-size:.83rem; color:#666; line-height:1.7; margin-top:.4rem; }
+
+    /* STATS */
+    .stats-strip { background:var(--rust); padding:50px 0; }
+    .stat-box { text-align:center; }
+    .stat-box .num { font-family:'Oswald',sans-serif; font-size:3rem; font-weight:700; color:#fff; line-height:1; }
+    .stat-box .lbl { font-size:.8rem; color:rgba(255,255,255,.8); letter-spacing:2px; margin-top:.3rem; }
+
+    /* TIMELINE */
+    .timeline { position:relative; padding-left:40px; }
+    .timeline::before { content:''; position:absolute; left:14px; top:0; bottom:0; width:2px; background:var(--steel); }
+    .tl-item { position:relative; margin-bottom:2rem; }
+    .tl-dot {
+      position:absolute; left:-33px; top:4px;
+      width:20px; height:20px; border-radius:50%;
+      background:var(--rust); border:3px solid var(--steel);
+    }
+    .tl-year { font-family:'Oswald',sans-serif; color:var(--rust); font-size:.85rem; letter-spacing:1px; }
+    .tl-title { font-family:'Oswald',sans-serif; color:var(--steel); font-size:1rem; }
+    .tl-text { font-size:.85rem; color:#666; line-height:1.7; margin-top:.3rem; }
+
+    /* ORGANIGRAM */
+    .org-section { background:var(--light-bg); }
+    .org-box {
+      background:#fff; border:1px solid #dde;
+      padding:1rem 1.5rem; text-align:center;
+      border-top:3px solid var(--rust);
+      min-width:140px;
+    }
+    .org-box .title { font-family:'Oswald',sans-serif; font-size:.85rem; color:var(--steel); letter-spacing:.5px; }
+    .org-box .name { font-size:.8rem; color:#666; margin-top:.2rem; }
+    .org-connector { border-left:2px solid #ccc; height:30px; margin:0 auto; width:0; }
+    .org-h-line { border-top:2px solid #ccc; }
+    .org-tree { overflow-x:auto; }
+
+    /* TEAM */
+    .team-card { text-align:center; }
+    .team-card img { width:120px; height:120px; border-radius:50%; object-fit:cover; border:4px solid var(--rust); margin-bottom:1rem; }
+    .team-card h6 { font-family:'Oswald',sans-serif; color:var(--steel); letter-spacing:1px; }
+    .team-card small { color:#888; font-size:.8rem; }
+
+    /* SERTIFIKASI */
+    .sert-card { background:#fff; border:1px solid #e0e6ed; padding:1.5rem; text-align:center; }
+    .sert-card .sert-icon { font-size:2.5rem; color:var(--rust); margin-bottom:.8rem; }
+    .sert-card h6 { font-family:'Oswald',sans-serif; color:var(--steel); font-size:.9rem; }
+    .sert-card p { font-size:.8rem; color:#888; }
+
+    /* FOOTER */
+    footer { background:#0d1821; color:var(--silver); padding:50px 0 20px; }
+    footer h6 { font-family:'Oswald',sans-serif; color:#fff; letter-spacing:2px; margin-bottom:1rem; font-size:.9rem; }
+    footer p, footer a { font-size:.85rem; color:var(--silver); text-decoration:none; line-height:1.9; }
+    footer a:hover { color:var(--rust); }
+    footer .brand-footer { font-family:'Oswald',sans-serif; font-size:1.6rem; color:#fff; letter-spacing:2px; }
+    footer .brand-footer span { color:var(--rust); }
+    .footer-bottom { border-top:1px solid #1e2d3d; margin-top:2rem; padding-top:1rem; font-size:.78rem; color:#556; text-align:center; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="01-home.html">PT. MITRA <span>MOLDING</span> INDUSTRI</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="01-home.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link active" href="02-tentang.html">TENTANG KAMI</a></li>
+        <li class="nav-item"><a class="nav-link" href="03-artikel.html">ARTIKEL</a></li>
+        <li class="nav-item"><a class="nav-link" href="05-produk.html">PRODUK</a></li>
+        <li class="nav-item"><a class="nav-link" href="04-kontak.html">KONTAK</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-3" style="background:transparent;padding:0">
+        <li class="breadcrumb-item"><a href="01-home.html">Home</a></li>
+        <li class="breadcrumb-item active">Tentang Kami</li>
+      </ol>
+    </nav>
+    <h1>Tentang Perusahaan</h1>
+    <p>Mengenal lebih dekat PT. Mitra Molding Industri — visi, misi, nilai, dan orang-orang di balik keunggulan kami.</p>
+  </div>
+</div>
+
+<!-- PROFIL PERUSAHAAN -->
+<section>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop" alt="Profil Perusahaan" class="profile-img"/>
+      </div>
+      <div class="col-lg-6">
+        <div class="section-label">PROFIL PERUSAHAAN</div>
+        <div class="year-tag">EST. 2000</div>
+        <h2 class="section-title">PT. Mitra Molding Industri</h2>
+        <div class="divider-rust"></div>
+        <p class="text-muted mb-3" style="line-height:1.9">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+        <p class="text-muted mb-3" style="line-height:1.9">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class="text-muted mb-4" style="line-height:1.9">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis.</p>
+        <div class="row g-3">
+          <div class="col-6"><div class="d-flex gap-2 align-items-start"><i class="bi bi-building text-danger mt-1"></i><div><strong style="font-family:'Oswald',sans-serif;font-size:.9rem">BIDANG USAHA</strong><div class="text-muted" style="font-size:.83rem">Manufaktur Plastik & Molding</div></div></div></div>
+          <div class="col-6"><div class="d-flex gap-2 align-items-start"><i class="bi bi-people text-danger mt-1"></i><div><strong style="font-family:'Oswald',sans-serif;font-size:.9rem">JUMLAH KARYAWAN</strong><div class="text-muted" style="font-size:.83rem">250+ Tenaga Ahli</div></div></div></div>
+          <div class="col-6"><div class="d-flex gap-2 align-items-start"><i class="bi bi-geo-alt text-danger mt-1"></i><div><strong style="font-family:'Oswald',sans-serif;font-size:.9rem">LOKASI</strong><div class="text-muted" style="font-size:.83rem">Jakarta, Indonesia</div></div></div></div>
+          <div class="col-6"><div class="d-flex gap-2 align-items-start"><i class="bi bi-patch-check text-danger mt-1"></i><div><strong style="font-family:'Oswald',sans-serif;font-size:.9rem">SERTIFIKASI</strong><div class="text-muted" style="font-size:.83rem">ISO 9001:2015</div></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-md-3"><div class="stat-box"><div class="num">25+</div><div class="lbl">TAHUN PENGALAMAN</div></div></div>
+      <div class="col-6 col-md-3"><div class="stat-box"><div class="num">500+</div><div class="lbl">KLIEN AKTIF</div></div></div>
+      <div class="col-6 col-md-3"><div class="stat-box"><div class="num">1200+</div><div class="lbl">PRODUK SELESAI</div></div></div>
+      <div class="col-6 col-md-3"><div class="stat-box"><div class="num">250+</div><div class="lbl">TENAGA AHLI</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- VISI & MISI -->
+<section class="visi-misi">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-label" style="color:var(--rust)">ARAH PERUSAHAAN</div>
+      <h2 class="section-title" style="color:#fff">Visi & Misi Kami</h2>
+      <div class="divider-rust mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="vm-card">
+          <div class="vm-icon"><i class="bi bi-eye"></i></div>
+          <h4>VISI</h4>
+          <p>Menjadi perusahaan molding terdepan dan terpercaya di Asia Tenggara dengan menghadirkan produk berkualitas tinggi, inovatif, dan berkelanjutan yang mendukung kemajuan industri nasional.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="vm-card">
+          <div class="vm-icon"><i class="bi bi-bullseye"></i></div>
+          <h4>MISI</h4>
+          <ul>
+            <li>Menghasilkan produk molding dengan standar kualitas internasional.</li>
+            <li>Mengembangkan teknologi dan inovasi dalam proses produksi.</li>
+            <li>Membangun kemitraan strategis yang saling menguntungkan.</li>
+            <li>Memberdayakan sumber daya manusia yang kompeten.</li>
+            <li>Menjaga kelestarian lingkungan dalam setiap proses bisnis.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TUJUAN & NILAI -->
+<section>
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-label">NILAI PERUSAHAAN</div>
+      <h2 class="section-title">Nilai Inti yang Kami Junjung</h2>
+      <div class="divider-rust mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-3"><div class="nilai-card"><div class="nilai-icon"><i class="bi bi-gem"></i></div><h5>KUALITAS</h5><p>Lorem ipsum dolor sit amet consectetur adipiscing elit eiusmod tempor.</p></div></div>
+      <div class="col-6 col-md-3"><div class="nilai-card"><div class="nilai-icon"><i class="bi bi-lightbulb"></i></div><h5>INOVASI</h5><p>Sed do eiusmod tempor incididunt ut labore dolore magna aliqua enim.</p></div></div>
+      <div class="col-6 col-md-3"><div class="nilai-card"><div class="nilai-icon"><i class="bi bi-shield-check"></i></div><h5>INTEGRITAS</h5><p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi.</p></div></div>
+      <div class="col-6 col-md-3"><div class="nilai-card"><div class="nilai-icon"><i class="bi bi-recycle"></i></div><h5>KEBERLANJUTAN</h5><p>Duis aute irure dolor reprehenderit voluptate velit esse cillum dolore.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEJARAH/TIMELINE -->
+<section style="background:var(--light-bg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <div class="section-label">PERJALANAN KAMI</div>
+        <h2 class="section-title">Sejarah Perusahaan</h2>
+        <div class="divider-rust"></div>
+        <p class="text-muted" style="line-height:1.9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&auto=format&fit=crop" alt="Sejarah" class="img-fluid mt-3" style="box-shadow:0 8px 30px rgba(0,0,0,.1)"/>
+      </div>
+      <div class="col-lg-6 offset-lg-1">
+        <div class="timeline mt-4">
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2000</div><div class="tl-title">PENDIRIAN PERUSAHAAN</div><p class="tl-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Perusahaan didirikan dengan modal awal dan 20 karyawan di kawasan industri Jakarta.</p></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2005</div><div class="tl-title">EKSPANSI PERTAMA</div><p class="tl-text">Duis aute irure dolor in reprehenderit. Pembukaan pabrik kedua dan penambahan lini produksi injection molding.</p></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2010</div><div class="tl-title">SERTIFIKASI ISO 9001</div><p class="tl-text">Ut enim ad minim veniam, quis nostrud. Perolehan sertifikasi internasional yang membuktikan komitmen kami terhadap kualitas.</p></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2015</div><div class="tl-title">PASAR EKSPOR</div><p class="tl-text">Nemo enim ipsam voluptatem. Penetrasi ke pasar ASEAN dengan ekspor produk ke Malaysia, Thailand, dan Vietnam.</p></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2020</div><div class="tl-title">MODERNISASI FASILITAS</div><p class="tl-text">Sed ut perspiciatis unde omnis iste natus. Investasi besar pada teknologi manufaktur terbaru dan otomasi produksi.</p></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2025</div><div class="tl-title">MILESTONE 25 TAHUN</div><p class="tl-text">Merayakan 25 tahun keunggulan dengan 500+ klien aktif dan komitmen menuju masa depan yang lebih hijau.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIGRAM -->
+<section class="org-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-label">STRUKTUR ORGANISASI</div>
+      <h2 class="section-title">Organigram Perusahaan</h2>
+      <div class="divider-rust mx-auto"></div>
+    </div>
+    <div class="org-tree">
+      <!-- Level 1 -->
+      <div class="d-flex justify-content-center mb-0">
+        <div class="org-box"><div class="title">DIREKTUR UTAMA</div><div class="name">Ir. Bambang Susilo, M.T.</div></div>
+      </div>
+      <div class="org-connector"></div>
+      <!-- Level 2 -->
+      <div class="d-flex justify-content-center gap-5 position-relative mb-0">
+        <div class="org-box"><div class="title">DIR. OPERASIONAL</div><div class="name">Drs. Agus Wibowo</div></div>
+        <div class="org-box"><div class="title">DIR. KEUANGAN</div><div class="name">Siti Aminah, S.E.</div></div>
+        <div class="org-box"><div class="title">DIR. PEMASARAN</div><div class="name">Hendra Kurnia, MBA</div></div>
+      </div>
+      <div class="d-flex justify-content-center gap-5">
+        <div class="org-connector"></div>
+        <div class="org-connector"></div>
+        <div class="org-connector"></div>
+      </div>
+      <!-- Level 3 -->
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <div class="org-box" style="border-top-color:var(--steel)"><div class="title">MGR. PRODUKSI</div><div class="name">Budi Hartono</div></div>
+        <div class="org-box" style="border-top-color:var(--steel)"><div class="title">MGR. QC</div><div class="name">Rina Dewi</div></div>
+        <div class="org-box" style="border-top-color:var(--steel)"><div class="title">MGR. AKUNTANSI</div><div class="name">Joko Purnomo</div></div>
+        <div class="org-box" style="border-top-color:var(--steel)"><div class="title">MGR. SALES</div><div class="name">Dewi Rahayu</div></div>
+        <div class="org-box" style="border-top-color:var(--steel)"><div class="title">MGR. MARKETING</div><div class="name">Fajar Nugroho</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIM INTI -->
+<section>
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-label">TIM KAMI</div>
+      <h2 class="section-title">Pimpinan Perusahaan</h2>
+      <div class="divider-rust mx-auto"></div>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-3"><div class="team-card"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&crop=face" alt=""/><h6>IR. BAMBANG SUSILO</h6><small>Direktur Utama</small></div></div>
+      <div class="col-6 col-md-3"><div class="team-card"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&auto=format&fit=crop&crop=face" alt=""/><h6>DRS. AGUS WIBOWO</h6><small>Direktur Operasional</small></div></div>
+      <div class="col-6 col-md-3"><div class="team-card"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&crop=face" alt=""/><h6>SITI AMINAH, S.E.</h6><small>Direktur Keuangan</small></div></div>
+      <div class="col-6 col-md-3"><div class="team-card"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&crop=face" alt=""/><h6>HENDRA KURNIA</h6><small>Direktur Pemasaran</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERTIFIKASI -->
+<section style="background:var(--light-bg)">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-label">PENGAKUAN</div>
+      <h2 class="section-title">Sertifikasi & Penghargaan</h2>
+      <div class="divider-rust mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-3"><div class="sert-card"><div class="sert-icon"><i class="bi bi-patch-check-fill"></i></div><h6>ISO 9001:2015</h6><p>Quality Management System</p></div></div>
+      <div class="col-6 col-md-3"><div class="sert-card"><div class="sert-icon"><i class="bi bi-award-fill"></i></div><h6>ISO 14001:2015</h6><p>Environmental Management</p></div></div>
+      <div class="col-6 col-md-3"><div class="sert-card"><div class="sert-icon"><i class="bi bi-trophy-fill"></i></div><h6>SNI CERTIFIED</h6><p>Standar Nasional Indonesia</p></div></div>
+      <div class="col-6 col-md-3"><div class="sert-card"><div class="sert-icon"><i class="bi bi-star-fill"></i></div><h6>TOP INDUSTRY 2024</h6><p>Penghargaan Industri Terbaik</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="brand-footer mb-3">PT. MITRA <span>MOLDING</span></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kami adalah perusahaan molding terpercaya di Indonesia.</p>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#"><i class="bi bi-linkedin fs-5"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6"><h6>NAVIGASI</h6>
+        <div><a href="01-home.html">Home</a></div>
+        <div><a href="02-tentang.html">Tentang Kami</a></div>
+        <div><a href="03-artikel.html">Artikel</a></div>
+        <div><a href="05-produk.html">Produk</a></div>
+        <div><a href="04-kontak.html">Kontak</a></div>
+      </div>
+      <div class="col-lg-3 col-6"><h6>LAYANAN</h6>
+        <div><a href="#">Injection Molding</a></div>
+        <div><a href="#">Blow Molding</a></div>
+        <div><a href="#">Compression Molding</a></div>
+        <div><a href="#">Tooling & Die</a></div>
+      </div>
+      <div class="col-lg-3"><h6>KONTAK</h6>
+        <p><i class="bi bi-geo-alt me-2"></i>Jl. Industri Raya No. 88, Jakarta</p>
+        <p><i class="bi bi-telephone me-2"></i>+62 21 5555 7890</p>
+        <p><i class="bi bi-envelope me-2"></i>info@mitramolding.co.id</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PT. Mitra Molding Industri. Seluruh hak cipta dilindungi.</p></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

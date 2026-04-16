@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontak – PT. Mitra Molding Industri</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --steel:#1a2332; --rust:#c0392b; --rust-light:#e74c3c; --silver:#bdc3c7; --light-bg:#f4f6f8; }
+    body { font-family:'Source Serif 4',serif; color:#222; }
+    h1,h2,h3,h4,h5,h6 { font-family:'Oswald',sans-serif; }
+
+    .navbar-custom { background:var(--steel); border-bottom:3px solid var(--rust); padding:0 2rem; }
+    .navbar-custom .navbar-brand { font-family:'Oswald',sans-serif; font-size:1.5rem; color:#fff !important; letter-spacing:2px; }
+    .navbar-custom .navbar-brand span { color:var(--rust); }
+    .navbar-custom .nav-link { color:var(--silver) !important; font-family:'Oswald',sans-serif; letter-spacing:1px; font-size:.9rem; padding:1.2rem 1rem !important; transition:color .2s; }
+    .navbar-custom .nav-link:hover,.navbar-custom .nav-link.active { color:var(--rust) !important; }
+    .navbar-toggler { border-color:var(--silver); } .navbar-toggler-icon { filter:invert(1); }
+
+    .page-hero { background:linear-gradient(135deg,var(--steel),#0d1821); padding:80px 0 60px; position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=40') center/cover; opacity:.1; }
+    .page-hero-content { position:relative; z-index:2; }
+    .breadcrumb-item a { color:var(--silver); text-decoration:none; }
+    .breadcrumb-item.active { color:var(--rust); }
+    .page-hero h1 { font-size:clamp(2rem,5vw,3.5rem); color:#fff; font-weight:700; }
+    .page-hero p { color:var(--silver); font-style:italic; line-height:1.8; }
+
+    .section-label { font-family:'Oswald',sans-serif; font-size:.75rem; letter-spacing:4px; color:var(--rust); text-transform:uppercase; margin-bottom:.5rem; }
+    .section-title { font-family:'Oswald',sans-serif; font-size:clamp(1.8rem,3vw,2.5rem); color:var(--steel); line-height:1.15; }
+    .divider-rust { width:50px; height:4px; background:var(--rust); margin:1rem 0 1.5rem; }
+
+    /* CONTACT INFO CARDS */
+    .contact-info-card {
+      background:#fff; border:1px solid #e0e6ed;
+      padding:2rem; text-align:center; height:100%;
+      border-top:4px solid var(--rust);
+      transition:box-shadow .25s, transform .25s;
+    }
+    .contact-info-card:hover { box-shadow:0 12px 40px rgba(0,0,0,.1); transform:translateY(-4px); }
+    .contact-icon { width:64px; height:64px; background:var(--steel); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:var(--rust); margin:0 auto 1rem; }
+    .contact-info-card h6 { font-family:'Oswald',sans-serif; color:var(--steel); letter-spacing:2px; font-size:.85rem; margin-bottom:.5rem; }
+    .contact-info-card p, .contact-info-card a { font-size:.88rem; color:#555; line-height:1.8; text-decoration:none; display:block; }
+    .contact-info-card a:hover { color:var(--rust); }
+
+    /* MAP */
+    .map-section { background:var(--light-bg); }
+    .map-wrapper { position:relative; }
+    .map-wrapper iframe { width:100%; height:450px; border:0; display:block; }
+    .map-info-overlay {
+      background:var(--steel); color:#fff;
+      padding:2rem; height:100%;
+    }
+    .map-info-overlay h5 { font-family:'Oswald',sans-serif; letter-spacing:2px; color:#fff; border-bottom:2px solid var(--rust); padding-bottom:.8rem; margin-bottom:1.5rem; }
+    .map-detail-item { display:flex; gap:1rem; margin-bottom:1.2rem; align-items:flex-start; }
+    .map-detail-item .icon { color:var(--rust); font-size:1.1rem; margin-top:3px; flex-shrink:0; }
+    .map-detail-item .text { font-size:.87rem; color:var(--silver); line-height:1.7; }
+    .map-detail-item .label { font-family:'Oswald',sans-serif; color:#fff; font-size:.8rem; letter-spacing:1px; margin-bottom:.2rem; }
+    .badge-open { background:var(--rust); color:#fff; font-family:'Oswald',sans-serif; font-size:.7rem; letter-spacing:1px; padding:.2rem .6rem; }
+
+    /* FORM */
+    .contact-form-section { }
+    .form-wrap {
+      background:var(--steel);
+      padding:2.5rem;
+    }
+    .form-wrap h4 { font-family:'Oswald',sans-serif; color:#fff; letter-spacing:2px; margin-bottom:.4rem; }
+    .form-wrap p { color:var(--silver); font-size:.85rem; margin-bottom:1.5rem; font-style:italic; }
+    .form-label { font-family:'Oswald',sans-serif; font-size:.78rem; letter-spacing:1px; color:var(--silver); margin-bottom:.3rem; }
+    .form-control, .form-select {
+      background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15);
+      color:#fff; border-radius:0; font-size:.9rem;
+      transition:border-color .2s;
+    }
+    .form-control::placeholder { color:rgba(255,255,255,.3); }
+    .form-control:focus, .form-select:focus {
+      background:rgba(255,255,255,.1); border-color:var(--rust);
+      color:#fff; box-shadow:none;
+    }
+    .form-select { color:rgba(255,255,255,.6); }
+    .form-select option { background:var(--steel); color:#fff; }
+    .btn-submit { background:var(--rust); color:#fff; font-family:'Oswald',sans-serif; letter-spacing:2px; padding:.8rem 2.5rem; border:none; font-size:.95rem; border-radius:0; width:100%; transition:background .2s; }
+    .btn-submit:hover { background:var(--rust-light); color:#fff; }
+    .form-check-input:checked { background-color:var(--rust); border-color:var(--rust); }
+    .form-check-label { color:var(--silver); font-size:.83rem; }
+
+    /* FAQ */
+    .faq-section { background:var(--light-bg); }
+    .accordion-item { border:1px solid #dde; border-radius:0 !important; margin-bottom:.5rem; }
+    .accordion-button { font-family:'Oswald',sans-serif; letter-spacing:.5px; color:var(--steel); background:#fff; font-size:.95rem; border-radius:0 !important; }
+    .accordion-button:not(.collapsed) { background:var(--steel); color:#fff; box-shadow:none; }
+    .accordion-button::after { filter:none; }
+    .accordion-button:not(.collapsed)::after { filter:invert(1); }
+    .accordion-body { font-size:.88rem; color:#555; line-height:1.8; }
+
+    /* SOCIAL STRIP */
+    .social-strip { background:var(--rust); padding:40px 0; }
+    .social-link { display:flex; flex-direction:column; align-items:center; color:#fff; text-decoration:none; transition:transform .2s; }
+    .social-link:hover { transform:translateY(-4px); color:rgba(255,255,255,.8); }
+    .social-link .icon { font-size:2rem; margin-bottom:.3rem; }
+    .social-link .lbl { font-family:'Oswald',sans-serif; font-size:.75rem; letter-spacing:2px; }
+
+    footer { background:#0d1821; color:var(--silver); padding:50px 0 20px; }
+    footer h6 { font-family:'Oswald',sans-serif; color:#fff; letter-spacing:2px; margin-bottom:1rem; font-size:.9rem; }
+    footer p, footer a { font-size:.85rem; color:var(--silver); text-decoration:none; line-height:1.9; }
+    footer a:hover { color:var(--rust); }
+    footer .brand-footer { font-family:'Oswald',sans-serif; font-size:1.6rem; color:#fff; letter-spacing:2px; }
+    footer .brand-footer span { color:var(--rust); }
+    .footer-bottom { border-top:1px solid #1e2d3d; margin-top:2rem; padding-top:1rem; font-size:.78rem; color:#556; text-align:center; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="01-home.html">PT. MITRA <span>MOLDING</span> INDUSTRI</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="01-home.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="02-tentang.html">TENTANG KAMI</a></li>
+        <li class="nav-item"><a class="nav-link" href="03-artikel.html">ARTIKEL</a></li>
+        <li class="nav-item"><a class="nav-link" href="05-produk.html">PRODUK</a></li>
+        <li class="nav-item"><a class="nav-link active" href="04-kontak.html">KONTAK</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-3" style="background:transparent;padding:0"><li class="breadcrumb-item"><a href="01-home.html">Home</a></li><li class="breadcrumb-item active">Kontak</li></ol></nav>
+    <h1>Hubungi Kami</h1>
+    <p>Kami siap membantu Anda. Hubungi tim kami untuk konsultasi, penawaran, atau informasi lebih lanjut.</p>
+  </div>
+</div>
+
+<!-- CONTACT INFO CARDS -->
+<section style="padding:60px 0">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-md-3">
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+          <h6>ALAMAT KANTOR</h6>
+          <p>Jl. Industri Raya No. 88<br/>Kawasan Industri Pulogadung<br/>Jakarta Timur 14450</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+          <h6>TELEPON</h6>
+          <a href="tel:+622155557890">+62 21 5555 7890</a>
+          <a href="tel:+622155557891">+62 21 5555 7891</a>
+          <a href="tel:+6281234567890">+62 812 3456 7890 (WA)</a>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+          <h6>EMAIL</h6>
+          <a href="mailto:info@mitramolding.co.id">info@mitramolding.co.id</a>
+          <a href="mailto:sales@mitramolding.co.id">sales@mitramolding.co.id</a>
+          <a href="mailto:support@mitramolding.co.id">support@mitramolding.co.id</a>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
+          <h6>JAM OPERASIONAL</h6>
+          <p><strong>Senin – Jumat</strong><br/>08.00 – 17.00 WIB</p>
+          <p><strong>Sabtu</strong><br/>08.00 – 13.00 WIB</p>
+          <p><span class="badge-open">BUKA SEKARANG</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP + FORM -->
+<section class="contact-form-section" style="padding:0 0 70px">
+  <div class="container">
+    <div class="row g-0">
+      <!-- MAP -->
+      <div class="col-lg-7">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6601502718957!2d106.89282!3d-6.18632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f47f8c3e8a4b%3A0x3e8a4b8c3e8a4b8c!2sKawasan%20Industri%20Pulogadung%2C%20Jakarta%20Timur!5e0!3m2!1sid!2sid!4v1690000000000!5m2!1sid!2sid"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          style="width:100%;height:100%;min-height:500px;border:0;display:block">
+        </iframe>
+      </div>
+      <!-- FORM -->
+      <div class="col-lg-5">
+        <div class="form-wrap h-100">
+          <h4>KIRIM PESAN</h4>
+          <p>Isi formulir di bawah ini dan tim kami akan merespons dalam 1×24 jam.</p>
+          <form>
+            <div class="row g-3">
+              <div class="col-6">
+                <label class="form-label">NAMA LENGKAP *</label>
+                <input type="text" class="form-control" placeholder="Nama Anda"/>
+              </div>
+              <div class="col-6">
+                <label class="form-label">PERUSAHAAN</label>
+                <input type="text" class="form-control" placeholder="PT. ..."/>
+              </div>
+              <div class="col-12">
+                <label class="form-label">EMAIL *</label>
+                <input type="email" class="form-control" placeholder="email@domain.com"/>
+              </div>
+              <div class="col-12">
+                <label class="form-label">NOMOR TELEPON</label>
+                <input type="tel" class="form-control" placeholder="+62 ..."/>
+              </div>
+              <div class="col-12">
+                <label class="form-label">TOPIK PERTANYAAN</label>
+                <select class="form-select">
+                  <option value="">-- Pilih Topik --</option>
+                  <option>Penawaran Produk</option>
+                  <option>Konsultasi Teknis</option>
+                  <option>Kerjasama / Partnership</option>
+                  <option>Komplain / After-Sales</option>
+                  <option>Informasi Lainnya</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">PESAN *</label>
+                <textarea class="form-control" rows="4" placeholder="Tuliskan pertanyaan atau kebutuhan Anda..."></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="agree"/>
+                  <label class="form-check-label" for="agree">Saya setuju dengan kebijakan privasi perusahaan.</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-submit">KIRIM PESAN →</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" style="padding:70px 0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+        <div class="divider-rust"></div>
+        <p class="text-muted" style="line-height:1.9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tidak menemukan jawaban? Hubungi tim kami langsung.</p>
+        <div class="mt-4 p-3" style="background:var(--steel)">
+          <div class="d-flex gap-3 align-items-center">
+            <i class="bi bi-headset fs-2 text-danger"></i>
+            <div>
+              <div style="font-family:'Oswald',sans-serif;color:#fff;letter-spacing:1px;font-size:.9rem">CUSTOMER SERVICE</div>
+              <a href="tel:+622155557890" style="color:var(--silver);font-size:.85rem;text-decoration:none">+62 21 5555 7890</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Apa saja layanan utama PT. Mitra Molding?</button></h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Kami menyediakan layanan injection molding, blow molding, compression molding, tooling & die making, dan OEM manufacturing.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Berapa minimum order (MOQ) untuk produksi?</button></h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. MOQ kami bervariasi tergantung jenis produk dan material. Silakan hubungi tim sales kami untuk informasi lebih detail.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Apakah PT. Mitra Molding menerima pesanan custom?</button></h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Ya, kami menerima pesanan custom sesuai spesifikasi klien, termasuk desain mold baru, material khusus, dan finishing yang disesuaikan.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Berapa lama waktu produksi untuk pesanan baru?</button></h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur. Waktu produksi bervariasi: 2–4 minggu untuk tooling & mold baru, dan 1–2 minggu untuk produksi massal setelah mold siap.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">Apakah tersedia layanan pengiriman ke luar kota/luar negeri?</button></h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Sed ut perspiciatis unde omnis iste natus error. Kami melayani pengiriman ke seluruh Indonesia dan ekspor ke negara-negara ASEAN. Tim logistik kami akan mengurus semua dokumen dan pengiriman dengan aman.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center mb-3"><h5 style="font-family:'Oswald',sans-serif;color:#fff;letter-spacing:3px">IKUTI KAMI DI MEDIA SOSIAL</h5></div>
+    </div>
+    <div class="row justify-content-center g-4">
+      <div class="col-6 col-md-2 text-center"><a href="#" class="social-link"><span class="icon"><i class="bi bi-facebook"></i></span><span class="lbl">FACEBOOK</span></a></div>
+      <div class="col-6 col-md-2 text-center"><a href="#" class="social-link"><span class="icon"><i class="bi bi-instagram"></i></span><span class="lbl">INSTAGRAM</span></a></div>
+      <div class="col-6 col-md-2 text-center"><a href="#" class="social-link"><span class="icon"><i class="bi bi-linkedin"></i></span><span class="lbl">LINKEDIN</span></a></div>
+      <div class="col-6 col-md-2 text-center"><a href="#" class="social-link"><span class="icon"><i class="bi bi-youtube"></i></span><span class="lbl">YOUTUBE</span></a></div>
+      <div class="col-6 col-md-2 text-center"><a href="#" class="social-link"><span class="icon"><i class="bi bi-whatsapp"></i></span><span class="lbl">WHATSAPP</span></a></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4"><div class="brand-footer mb-3">PT. MITRA <span>MOLDING</span></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kami adalah perusahaan molding terpercaya di Indonesia.</p><div class="d-flex gap-3 mt-3"><a href="#"><i class="bi bi-facebook fs-5"></i></a><a href="#"><i class="bi bi-instagram fs-5"></i></a><a href="#"><i class="bi bi-linkedin fs-5"></i></a></div></div>
+      <div class="col-lg-2 col-6"><h6>NAVIGASI</h6><div><a href="01-home.html">Home</a></div><div><a href="02-tentang.html">Tentang Kami</a></div><div><a href="03-artikel.html">Artikel</a></div><div><a href="05-produk.html">Produk</a></div><div><a href="04-kontak.html">Kontak</a></div></div>
+      <div class="col-lg-3 col-6"><h6>LAYANAN</h6><div><a href="#">Injection Molding</a></div><div><a href="#">Blow Molding</a></div><div><a href="#">Compression Molding</a></div><div><a href="#">Tooling & Die</a></div></div>
+      <div class="col-lg-3"><h6>KONTAK</h6><p><i class="bi bi-geo-alt me-2"></i>Jl. Industri Raya No. 88, Jakarta</p><p><i class="bi bi-telephone me-2"></i>+62 21 5555 7890</p><p><i class="bi bi-envelope me-2"></i>info@mitramolding.co.id</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PT. Mitra Molding Industri. Seluruh hak cipta dilindungi.</p></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

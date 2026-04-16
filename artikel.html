@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artikel – PT. Mitra Molding Industri</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --steel:#1a2332; --rust:#c0392b; --rust-light:#e74c3c; --silver:#bdc3c7; --light-bg:#f4f6f8; }
+    body { font-family:'Source Serif 4',serif; color:#222; }
+    h1,h2,h3,h4,h5,h6 { font-family:'Oswald',sans-serif; }
+
+    .navbar-custom { background:var(--steel); border-bottom:3px solid var(--rust); padding:0 2rem; }
+    .navbar-custom .navbar-brand { font-family:'Oswald',sans-serif; font-size:1.5rem; color:#fff !important; letter-spacing:2px; }
+    .navbar-custom .navbar-brand span { color:var(--rust); }
+    .navbar-custom .nav-link { color:var(--silver) !important; font-family:'Oswald',sans-serif; letter-spacing:1px; font-size:.9rem; padding:1.2rem 1rem !important; transition:color .2s; }
+    .navbar-custom .nav-link:hover,.navbar-custom .nav-link.active { color:var(--rust) !important; }
+    .navbar-toggler { border-color:var(--silver); } .navbar-toggler-icon { filter:invert(1); }
+
+    .page-hero { background:linear-gradient(135deg,var(--steel),#0d1821); padding:80px 0 60px; position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=40') center/cover; opacity:.1; }
+    .page-hero-content { position:relative; z-index:2; }
+    .breadcrumb-item a { color:var(--silver); text-decoration:none; }
+    .breadcrumb-item.active { color:var(--rust); }
+    .page-hero h1 { font-size:clamp(2rem,5vw,3.5rem); color:#fff; font-weight:700; }
+    .page-hero p { color:var(--silver); font-style:italic; line-height:1.8; }
+
+    .section-label { font-family:'Oswald',sans-serif; font-size:.75rem; letter-spacing:4px; color:var(--rust); text-transform:uppercase; margin-bottom:.5rem; }
+    .section-title { font-family:'Oswald',sans-serif; font-size:clamp(1.8rem,3vw,2.5rem); color:var(--steel); line-height:1.15; }
+    .divider-rust { width:50px; height:4px; background:var(--rust); margin:1rem 0 1.5rem; }
+
+    /* FEATURED ARTICLE */
+    .featured-article {
+      position:relative; overflow:hidden;
+      background:var(--steel);
+    }
+    .featured-article img { width:100%; height:480px; object-fit:cover; opacity:.5; }
+    .featured-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to right, rgba(26,35,50,.95) 50%, transparent 100%);
+      display:flex; align-items:center;
+      padding:3rem;
+    }
+    .feat-badge { background:var(--rust); color:#fff; font-family:'Oswald',sans-serif; font-size:.75rem; letter-spacing:2px; padding:.3rem .8rem; display:inline-block; margin-bottom:1rem; }
+    .feat-title { font-family:'Oswald',sans-serif; font-size:2rem; color:#fff; line-height:1.2; max-width:520px; }
+    .feat-meta { color:var(--silver); font-size:.82rem; margin-top:.8rem; }
+    .feat-excerpt { color:var(--silver); font-style:italic; max-width:480px; line-height:1.8; margin-top:1rem; font-size:.9rem; }
+    .btn-read { background:var(--rust); color:#fff; font-family:'Oswald',sans-serif; letter-spacing:2px; padding:.6rem 1.8rem; border:none; font-size:.85rem; margin-top:1.5rem; transition:background .2s; display:inline-block; text-decoration:none; }
+    .btn-read:hover { background:var(--rust-light); color:#fff; }
+
+    /* FILTER TAGS */
+    .filter-tags { gap:.5rem; flex-wrap:wrap; }
+    .filter-tag { background:#fff; border:2px solid #dde; color:var(--steel); font-family:'Oswald',sans-serif; font-size:.8rem; letter-spacing:1px; padding:.4rem 1.2rem; cursor:pointer; transition:all .2s; text-decoration:none; }
+    .filter-tag:hover,.filter-tag.active { background:var(--rust); border-color:var(--rust); color:#fff; }
+
+    /* ARTICLE CARD */
+    .article-card { background:#fff; border:1px solid #e0e6ed; height:100%; transition:box-shadow .25s,transform .25s; overflow:hidden; }
+    .article-card:hover { box-shadow:0 12px 40px rgba(0,0,0,.1); transform:translateY(-4px); }
+    .article-card .card-img { width:100%; aspect-ratio:16/9; object-fit:cover; transition:transform .4s; }
+    .article-card:hover .card-img { transform:scale(1.04); }
+    .article-card .card-body { padding:1.5rem; }
+    .article-cat { display:inline-block; background:var(--steel); color:var(--rust); font-family:'Oswald',sans-serif; font-size:.7rem; letter-spacing:2px; padding:.2rem .7rem; margin-bottom:.8rem; }
+    .article-card h5 { font-family:'Oswald',sans-serif; color:var(--steel); font-size:1.05rem; line-height:1.3; }
+    .article-card p { font-size:.83rem; color:#666; line-height:1.7; margin-top:.5rem; }
+    .article-meta { font-size:.75rem; color:#999; margin-top:1rem; border-top:1px solid #eee; padding-top:.8rem; }
+    .article-meta i { color:var(--rust); }
+    .btn-article { color:var(--rust); font-family:'Oswald',sans-serif; font-size:.8rem; letter-spacing:1px; text-decoration:none; transition:color .2s; }
+    .btn-article:hover { color:var(--steel); }
+    .article-img-wrap { overflow:hidden; }
+
+    /* SIDEBAR */
+    .sidebar-widget { background:#fff; border:1px solid #e0e6ed; padding:1.5rem; margin-bottom:1.5rem; }
+    .sidebar-widget h6 { font-family:'Oswald',sans-serif; color:var(--steel); letter-spacing:2px; font-size:.9rem; border-bottom:2px solid var(--rust); padding-bottom:.5rem; margin-bottom:1rem; }
+    .recent-item { display:flex; gap:.8rem; align-items:flex-start; padding:.6rem 0; border-bottom:1px solid #f0f0f0; }
+    .recent-item:last-child { border-bottom:none; }
+    .recent-thumb { width:60px; height:50px; object-fit:cover; flex-shrink:0; }
+    .recent-title { font-size:.8rem; color:var(--steel); font-family:'Oswald',sans-serif; line-height:1.3; }
+    .recent-date { font-size:.72rem; color:#999; margin-top:.2rem; }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .tag-item { background:var(--light-bg); color:var(--steel); font-family:'Oswald',sans-serif; font-size:.72rem; letter-spacing:1px; padding:.3rem .8rem; text-decoration:none; transition:all .2s; }
+    .tag-item:hover { background:var(--rust); color:#fff; }
+    .popular-num { font-family:'Oswald',sans-serif; font-size:2rem; color:#eee; line-height:1; min-width:35px; }
+
+    /* PAGINATION */
+    .page-link { color:var(--steel); border-radius:0 !important; font-family:'Oswald',sans-serif; letter-spacing:1px; }
+    .page-item.active .page-link { background:var(--rust); border-color:var(--rust); }
+    .page-link:hover { background:var(--light-bg); color:var(--rust); }
+
+    /* NEWSLETTER */
+    .newsletter-box { background:var(--steel); padding:2.5rem; }
+    .newsletter-box h5 { font-family:'Oswald',sans-serif; color:#fff; letter-spacing:2px; }
+    .newsletter-box p { color:var(--silver); font-size:.85rem; }
+    .newsletter-box .form-control { border-radius:0; border:none; font-size:.85rem; }
+    .newsletter-box .btn { background:var(--rust); color:#fff; border-radius:0; font-family:'Oswald',sans-serif; letter-spacing:1px; border:none; }
+
+    footer { background:#0d1821; color:var(--silver); padding:50px 0 20px; }
+    footer h6 { font-family:'Oswald',sans-serif; color:#fff; letter-spacing:2px; margin-bottom:1rem; font-size:.9rem; }
+    footer p, footer a { font-size:.85rem; color:var(--silver); text-decoration:none; line-height:1.9; }
+    footer a:hover { color:var(--rust); }
+    footer .brand-footer { font-family:'Oswald',sans-serif; font-size:1.6rem; color:#fff; letter-spacing:2px; }
+    footer .brand-footer span { color:var(--rust); }
+    .footer-bottom { border-top:1px solid #1e2d3d; margin-top:2rem; padding-top:1rem; font-size:.78rem; color:#556; text-align:center; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="01-home.html">PT. MITRA <span>MOLDING</span> INDUSTRI</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="01-home.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="02-tentang.html">TENTANG KAMI</a></li>
+        <li class="nav-item"><a class="nav-link active" href="03-artikel.html">ARTIKEL</a></li>
+        <li class="nav-item"><a class="nav-link" href="05-produk.html">PRODUK</a></li>
+        <li class="nav-item"><a class="nav-link" href="04-kontak.html">KONTAK</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-3" style="background:transparent;padding:0"><li class="breadcrumb-item"><a href="01-home.html">Home</a></li><li class="breadcrumb-item active">Artikel</li></ol></nav>
+    <h1>Artikel & Berita</h1>
+    <p>Kumpulan artikel, berita terkini, dan wawasan seputar industri molding dan manufaktur.</p>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div class="featured-article">
+  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&auto=format&fit=crop" alt="Featured"/>
+  <div class="featured-overlay">
+    <div>
+      <div class="feat-badge">ARTIKEL UNGGULAN</div>
+      <h2 class="feat-title">Transformasi Industri Molding di Era Revolusi Industri 4.0</h2>
+      <div class="feat-meta"><i class="bi bi-calendar3 me-1"></i>15 Maret 2025 &nbsp;|&nbsp; <i class="bi bi-person me-1"></i>Admin &nbsp;|&nbsp; <i class="bi bi-tag me-1"></i>Teknologi</div>
+      <p class="feat-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <a href="#" class="btn-read">BACA SELENGKAPNYA →</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section style="padding:60px 0">
+  <div class="container">
+    <!-- Filter -->
+    <div class="d-flex filter-tags mb-4">
+      <a href="#" class="filter-tag active">SEMUA</a>
+      <a href="#" class="filter-tag">TEKNOLOGI</a>
+      <a href="#" class="filter-tag">INDUSTRI</a>
+      <a href="#" class="filter-tag">PRODUK</a>
+      <a href="#" class="filter-tag">TIPS & TRIK</a>
+      <a href="#" class="filter-tag">BERITA</a>
+    </div>
+
+    <div class="row g-4">
+      <!-- ARTICLES -->
+      <div class="col-lg-8">
+        <div class="row g-4">
+
+          <!-- Card 1 -->
+          <div class="col-md-6">
+            <div class="article-card">
+              <div class="article-img-wrap">
+                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&auto=format&fit=crop" alt="" class="card-img"/>
+              </div>
+              <div class="card-body">
+                <span class="article-cat">TEKNOLOGI</span>
+                <h5>Inovasi Material Polimer Terbaru dalam Industri Injection Molding</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim.</p>
+                <div class="article-meta d-flex justify-content-between align-items-center">
+                  <span><i class="bi bi-calendar3 me-1"></i>10 Maret 2025</span>
+                  <a href="#" class="btn-article">BACA →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-6">
+            <div class="article-card">
+              <div class="article-img-wrap">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop" alt="" class="card-img"/>
+              </div>
+              <div class="card-body">
+                <span class="article-cat">INDUSTRI</span>
+                <h5>Standar Kualitas ISO 9001 dan Dampaknya pada Kepercayaan Klien</h5>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.</p>
+                <div class="article-meta d-flex justify-content-between align-items-center">
+                  <span><i class="bi bi-calendar3 me-1"></i>5 Maret 2025</span>
+                  <a href="#" class="btn-article">BACA →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-6">
+            <div class="article-card">
+              <div class="article-img-wrap">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop" alt="" class="card-img"/>
+              </div>
+              <div class="card-body">
+                <span class="article-cat">TIPS & TRIK</span>
+                <h5>5 Tips Memilih Mitra Molding yang Tepat untuk Bisnis Anda</h5>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.</p>
+                <div class="article-meta d-flex justify-content-between align-items-center">
+                  <span><i class="bi bi-calendar3 me-1"></i>28 Feb 2025</span>
+                  <a href="#" class="btn-article">BACA →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-md-6">
+            <div class="article-card">
+              <div class="article-img-wrap">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&crop=top" alt="" class="card-img"/>
+              </div>
+              <div class="card-body">
+                <span class="article-cat">PRODUK</span>
+                <h5>Blow Molding vs Injection Molding: Mana yang Lebih Tepat?</h5>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos ratione.</p>
+                <div class="article-meta d-flex justify-content-between align-items-center">
+                  <span><i class="bi bi-calendar3 me-1"></i>20 Feb 2025</span>
+                  <a href="#" class="btn-article">BACA →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-md-6">
+            <div class="article-card">
+              <div class="article-img-wrap">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop" alt="" class="card-img"/>
+              </div>
+              <div class="card-body">
+                <span class="article-cat">BERITA</span>
+                <h5>PT. Mitra Molding Raih Penghargaan Top Industry 2024</h5>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa.</p>
+                <div class="article-meta d-flex justify-content-between align-items-center">
+                  <span><i class="bi bi-calendar3 me-1"></i>14 Feb 2025</span>
+                  <a href="#" class="btn-article">BACA →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-md-6">
+            <div class="article-card">
+              <div class="article-img-wrap">
+                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&auto=format&fit=crop&crop=bottom" alt="" class="card-img"/>
+              </div>
+              <div class="card-body">
+                <span class="article-cat">TEKNOLOGI</span>
+                <h5>Otomasi dan Robotika: Masa Depan Produksi Molding</h5>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos.</p>
+                <div class="article-meta d-flex justify-content-between align-items-center">
+                  <span><i class="bi bi-calendar3 me-1"></i>7 Feb 2025</span>
+                  <a href="#" class="btn-article">BACA →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <nav class="mt-4">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">»</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="col-lg-4">
+
+        <!-- Search -->
+        <div class="sidebar-widget">
+          <h6>CARI ARTIKEL</h6>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Cari..."/>
+            <button class="btn" style="background:var(--rust);color:#fff;border-radius:0"><i class="bi bi-search"></i></button>
+          </div>
+        </div>
+
+        <!-- Recent -->
+        <div class="sidebar-widget">
+          <h6>ARTIKEL TERBARU</h6>
+          <div class="recent-item">
+            <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=120&auto=format&fit=crop" class="recent-thumb" alt=""/>
+            <div><div class="recent-title">Inovasi Material Polimer Terbaru</div><div class="recent-date">10 Maret 2025</div></div>
+          </div>
+          <div class="recent-item">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=120&auto=format&fit=crop" class="recent-thumb" alt=""/>
+            <div><div class="recent-title">Standar Kualitas ISO 9001</div><div class="recent-date">5 Maret 2025</div></div>
+          </div>
+          <div class="recent-item">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=120&auto=format&fit=crop" class="recent-thumb" alt=""/>
+            <div><div class="recent-title">5 Tips Memilih Mitra Molding</div><div class="recent-date">28 Feb 2025</div></div>
+          </div>
+          <div class="recent-item">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=120&auto=format&fit=crop" class="recent-thumb" alt=""/>
+            <div><div class="recent-title">Penghargaan Top Industry 2024</div><div class="recent-date">14 Feb 2025</div></div>
+          </div>
+        </div>
+
+        <!-- Kategori -->
+        <div class="sidebar-widget">
+          <h6>KATEGORI</h6>
+          <ul class="list-unstyled mb-0">
+            <li class="d-flex justify-content-between py-1" style="border-bottom:1px solid #f0f0f0;font-size:.85rem"><a href="#" style="color:var(--steel);text-decoration:none">Teknologi</a><span class="badge" style="background:var(--rust)">8</span></li>
+            <li class="d-flex justify-content-between py-1" style="border-bottom:1px solid #f0f0f0;font-size:.85rem"><a href="#" style="color:var(--steel);text-decoration:none">Industri</a><span class="badge" style="background:var(--rust)">5</span></li>
+            <li class="d-flex justify-content-between py-1" style="border-bottom:1px solid #f0f0f0;font-size:.85rem"><a href="#" style="color:var(--steel);text-decoration:none">Produk</a><span class="badge" style="background:var(--rust)">6</span></li>
+            <li class="d-flex justify-content-between py-1" style="border-bottom:1px solid #f0f0f0;font-size:.85rem"><a href="#" style="color:var(--steel);text-decoration:none">Tips & Trik</a><span class="badge" style="background:var(--rust)">4</span></li>
+            <li class="d-flex justify-content-between py-1" style="font-size:.85rem"><a href="#" style="color:var(--steel);text-decoration:none">Berita</a><span class="badge" style="background:var(--rust)">3</span></li>
+          </ul>
+        </div>
+
+        <!-- Tags -->
+        <div class="sidebar-widget">
+          <h6>TAG</h6>
+          <div class="tag-cloud">
+            <a href="#" class="tag-item">Molding</a>
+            <a href="#" class="tag-item">Plastik</a>
+            <a href="#" class="tag-item">Injection</a>
+            <a href="#" class="tag-item">Blow</a>
+            <a href="#" class="tag-item">ISO</a>
+            <a href="#" class="tag-item">Otomasi</a>
+            <a href="#" class="tag-item">Industri 4.0</a>
+            <a href="#" class="tag-item">OEM</a>
+            <a href="#" class="tag-item">Polimer</a>
+            <a href="#" class="tag-item">Manufaktur</a>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter-box">
+          <h5>NEWSLETTER</h5>
+          <p>Dapatkan artikel terbaru langsung di inbox Anda.</p>
+          <div class="input-group mt-2">
+            <input type="email" class="form-control" placeholder="Email Anda..."/>
+            <button class="btn">LANGGANAN</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4"><div class="brand-footer mb-3">PT. MITRA <span>MOLDING</span></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kami adalah perusahaan molding terpercaya di Indonesia.</p><div class="d-flex gap-3 mt-3"><a href="#"><i class="bi bi-facebook fs-5"></i></a><a href="#"><i class="bi bi-instagram fs-5"></i></a><a href="#"><i class="bi bi-linkedin fs-5"></i></a></div></div>
+      <div class="col-lg-2 col-6"><h6>NAVIGASI</h6><div><a href="01-home.html">Home</a></div><div><a href="02-tentang.html">Tentang Kami</a></div><div><a href="03-artikel.html">Artikel</a></div><div><a href="05-produk.html">Produk</a></div><div><a href="04-kontak.html">Kontak</a></div></div>
+      <div class="col-lg-3 col-6"><h6>LAYANAN</h6><div><a href="#">Injection Molding</a></div><div><a href="#">Blow Molding</a></div><div><a href="#">Compression Molding</a></div><div><a href="#">Tooling & Die</a></div></div>
+      <div class="col-lg-3"><h6>KONTAK</h6><p><i class="bi bi-geo-alt me-2"></i>Jl. Industri Raya No. 88, Jakarta</p><p><i class="bi bi-telephone me-2"></i>+62 21 5555 7890</p><p><i class="bi bi-envelope me-2"></i>info@mitramolding.co.id</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PT. Mitra Molding Industri. Seluruh hak cipta dilindungi.</p></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
